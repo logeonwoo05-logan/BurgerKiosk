@@ -10,6 +10,20 @@ namespace BurgerKiosk
             rdoHamburger.AutoCheck = false;
             rdoBulgogiBurger.AutoCheck = false;
             rdoChickenBurger.AutoCheck = false;
+
+            // 라디오버튼과 체크박스 상태 변경 시 즉시 갱신하게 연결
+            rdoHamburger.CheckedChanged += UpdateOrder_Event;
+            rdoBulgogiBurger.CheckedChanged += UpdateOrder_Event;
+            rdoChickenBurger.CheckedChanged += UpdateOrder_Event;
+            chkFrenchFries.CheckedChanged += UpdateOrder_Event;
+            chkCola.CheckedChanged += UpdateOrder_Event;
+            chkCheese.CheckedChanged += UpdateOrder_Event;
+            chkSauce.CheckedChanged += UpdateOrder_Event;
+        }
+
+        private void UpdateOrder_Event(object sender, EventArgs e)
+        {
+            UpdateOrder();
         }
 
         protected override void OnShown(EventArgs e)
@@ -151,21 +165,10 @@ namespace BurgerKiosk
 
         int totalcost = 0;
 
-
-
-        private void btnOrder_Click(object sender, EventArgs e)
+        private void UpdateOrder()
         {
-            if (!rdoHamburger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked &&
-                !chkFrenchFries.Checked && !chkCola.Checked && !chkCheese.Checked && !chkSauce.Checked)
-            {
-                lblTotalCost.ForeColor = Color.Red;
-                lblTotalCost.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
-                lblTotalCost.Text = "주문할 메뉴를 선택해주세요.";
-                return;
-            }
-
-            lblTotalCost.ForeColor = Color.Blue;
-            lblTotalCost.Font = new Font("맑은 고딕", 16.125F, FontStyle.Regular);
+            lstOrder.Items.Clear();
+            totalcost = 0;
 
             if (rdoHamburger.Checked)
             {
@@ -207,7 +210,30 @@ namespace BurgerKiosk
                 lstOrder.Items.Add("소스 추가 500원");
             }
 
-            lblTotalCost.Text = "총 금액: " + totalcost.ToString("N0") + "원";
+            if (totalcost > 0 || lstOrder.Items.Count > 0)
+            {
+                lblTotalCost.ForeColor = Color.Blue;
+                lblTotalCost.Font = new Font("맑은 고딕", 16.125F, FontStyle.Regular);
+                lblTotalCost.Text = "총 금액: " + totalcost.ToString("N0") + "원";
+            }
+            else
+            {
+                lblTotalCost.ForeColor = Color.Blue;
+                lblTotalCost.Font = new Font("맑은 고딕", 16.125F, FontStyle.Regular);
+                lblTotalCost.Text = "총 금액 : 0원";
+            }
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            if (!rdoHamburger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked &&
+                !chkFrenchFries.Checked && !chkCola.Checked && !chkCheese.Checked && !chkSauce.Checked)
+            {
+                lblTotalCost.ForeColor = Color.Red;
+                lblTotalCost.Font = new Font("맑은 고딕", 12F, FontStyle.Bold);
+                lblTotalCost.Text = "주문할 메뉴를 선택해주세요.";
+                return;
+            }
         }
 
         private void btnInit_Click(object sender, EventArgs e)
