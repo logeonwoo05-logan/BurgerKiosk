@@ -5,6 +5,7 @@ namespace BurgerKiosk
         public Form1()
         {
             InitializeComponent();
+            lblError.Text = ""; // 프로그램 시작 시 미리 비워두기
         }
         
         int totalcost = 0;
@@ -13,6 +14,15 @@ namespace BurgerKiosk
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            lblError.Text = "";
+
+            if (!rdoHamburger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked &&
+                !chkFrenchFries.Checked && !chkCola.Checked && !chkCheese.Checked && !chkSauce.Checked)
+            {
+                lblError.Text = "주문할 메뉴를 선택해주세요.";
+                return;
+            }
+
             if (rdoHamburger.Checked)
             {
                 totalcost += 5000;
@@ -67,6 +77,8 @@ namespace BurgerKiosk
             chkSauce.Checked = false;
             lstOrder.Items.Clear();
             lblTotalCost.Text = "총 합계 : 000원";
+            lblError.Text = "";
+            totalcost = 0;
         }
     }
 }

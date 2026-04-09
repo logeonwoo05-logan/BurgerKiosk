@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblAppName = new Label();
             lblTotalCost = new Label();
+            lblError = new Label();
             btnOrder = new Button();
             btnInit = new Button();
             lstOrder = new ListBox();
@@ -76,6 +77,17 @@
             lblTotalCost.Size = new Size(275, 59);
             lblTotalCost.TabIndex = 2;
             lblTotalCost.Text = "총 금액 : 0원";
+            // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("맑은 고딕", 14F, FontStyle.Bold);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(756, 757);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(517, 51);
+            lblError.TabIndex = 10;
+            lblError.Text = "주문할 메뉴를 선택해 주세요";
             // 
             // btnOrder
             // 
@@ -272,6 +284,7 @@
             Controls.Add(grpOrder);
             Controls.Add(grpOption);
             Controls.Add(grpMenu);
+            Controls.Add(lblError);
             Controls.Add(btnInit);
             Controls.Add(btnOrder);
             Controls.Add(lblAppName);
@@ -294,6 +307,7 @@
 
         private Label lblAppName;
         private Label lblTotalCost;
+        private Label lblError;
         private Button btnOrder;
         private Button btnInit;
         private ListBox lstOrder;
