@@ -136,12 +136,20 @@ namespace BurgerKiosk
                 }
                 else if (activeControl is RadioButton rdo)
                 {
-                    // 수동 동작
-                    rdoHamburger.Checked = false;
-                    rdoBulgogiBurger.Checked = false;
-                    rdoChickenBurger.Checked = false;
+                    if (rdo.Checked)
+                    {
+                        // 이미 선택된 상태라면 선택 해제
+                        rdo.Checked = false;
+                    }
+                    else
+                    {
+                        // 수동 동작 (다른 것들 해제 후 선택)
+                        rdoHamburger.Checked = false;
+                        rdoBulgogiBurger.Checked = false;
+                        rdoChickenBurger.Checked = false;
 
-                    rdo.Checked = true;
+                        rdo.Checked = true;
+                    }
                     return true;
                 }
             }

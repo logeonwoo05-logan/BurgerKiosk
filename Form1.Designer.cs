@@ -158,7 +158,7 @@
             grpMenu.Location = new Point(115, 246);
             grpMenu.Name = "grpMenu";
             grpMenu.Size = new Size(564, 582);
-            grpMenu.TabIndex = 9;
+            grpMenu.TabIndex = 1;
             grpMenu.TabStop = false;
             grpMenu.Text = "메뉴 선택";
             // 
@@ -203,7 +203,7 @@
             grpOption.Location = new Point(789, 246);
             grpOption.Name = "grpOption";
             grpOption.Size = new Size(400, 426);
-            grpOption.TabIndex = 9;
+            grpOption.TabIndex = 2;
             grpOption.TabStop = false;
             grpOption.Text = "추가 옵션";
             // 
@@ -260,7 +260,7 @@
             grpOrder.Location = new Point(1309, 246);
             grpOrder.Name = "grpOrder";
             grpOrder.Size = new Size(454, 506);
-            grpOrder.TabIndex = 9;
+            grpOrder.TabIndex = 4;
             grpOrder.TabStop = false;
             grpOrder.Text = "주문 내역";
             grpOrder.Enter += grpOrder_Enter;
