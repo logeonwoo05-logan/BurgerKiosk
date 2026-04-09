@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblAppName = new Label();
             lblTotalCost = new Label();
-            lblError = new Label();
             btnOrder = new Button();
             btnInit = new Button();
             lstOrder = new ListBox();
@@ -72,28 +71,17 @@
             lblTotalCost.AutoSize = true;
             lblTotalCost.Font = new Font("맑은 고딕", 16.125F, FontStyle.Regular, GraphicsUnit.Point, 129);
             lblTotalCost.ForeColor = Color.Blue;
-            lblTotalCost.Location = new Point(38, 399);
+            lblTotalCost.Location = new Point(28, 433);
             lblTotalCost.Name = "lblTotalCost";
             lblTotalCost.Size = new Size(275, 59);
             lblTotalCost.TabIndex = 2;
             lblTotalCost.Text = "총 금액 : 0원";
             // 
-            // lblError
-            // 
-            lblError.AutoSize = true;
-            lblError.Font = new Font("맑은 고딕", 14F, FontStyle.Bold);
-            lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(756, 757);
-            lblError.Name = "lblError";
-            lblError.Size = new Size(517, 51);
-            lblError.TabIndex = 10;
-            lblError.Text = "주문할 메뉴를 선택해 주세요";
-            // 
             // btnOrder
             // 
             btnOrder.BackColor = Color.FromArgb(128, 255, 128);
             btnOrder.Font = new Font("맑은 고딕", 16.125F, FontStyle.Bold);
-            btnOrder.Location = new Point(1309, 740);
+            btnOrder.Location = new Point(1309, 758);
             btnOrder.Name = "btnOrder";
             btnOrder.Size = new Size(212, 88);
             btnOrder.TabIndex = 3;
@@ -105,7 +93,7 @@
             // 
             btnInit.BackColor = Color.FromArgb(255, 128, 128);
             btnInit.Font = new Font("맑은 고딕", 16.125F, FontStyle.Bold);
-            btnInit.Location = new Point(1565, 740);
+            btnInit.Location = new Point(1565, 758);
             btnInit.Name = "btnInit";
             btnInit.Size = new Size(198, 88);
             btnInit.TabIndex = 4;
@@ -118,7 +106,7 @@
             lstOrder.FormattingEnabled = true;
             lstOrder.Location = new Point(28, 54);
             lstOrder.Name = "lstOrder";
-            lstOrder.Size = new Size(378, 328);
+            lstOrder.Size = new Size(378, 382);
             lstOrder.TabIndex = 5;
             // 
             // rdoHamburger
@@ -271,10 +259,11 @@
             grpOrder.ForeColor = Color.Red;
             grpOrder.Location = new Point(1309, 246);
             grpOrder.Name = "grpOrder";
-            grpOrder.Size = new Size(454, 478);
+            grpOrder.Size = new Size(454, 506);
             grpOrder.TabIndex = 9;
             grpOrder.TabStop = false;
             grpOrder.Text = "주문 내역";
+            grpOrder.Enter += grpOrder_Enter;
             // 
             // Form1
             // 
@@ -284,7 +273,6 @@
             Controls.Add(grpOrder);
             Controls.Add(grpOption);
             Controls.Add(grpMenu);
-            Controls.Add(lblError);
             Controls.Add(btnInit);
             Controls.Add(btnOrder);
             Controls.Add(lblAppName);
@@ -307,7 +295,6 @@
 
         private Label lblAppName;
         private Label lblTotalCost;
-        private Label lblError;
         private Button btnOrder;
         private Button btnInit;
         private ListBox lstOrder;
